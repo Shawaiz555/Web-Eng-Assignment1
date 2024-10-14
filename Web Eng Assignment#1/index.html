@@ -20,7 +20,7 @@
                 <h1 class="text-center text-4xl mb-10 font-bold tracking-wide">
                     Add User Details
                 </h1>
-                <form>
+                <form id="UserForm">
                     <input type="text" class="w-full border border-gray-300 rounded-lg" placeholder="Enter your Name..."
                         name="Name" id="Name" required /><br /><br />
                     <input type="number" class="w-full border border-gray-300 rounded-lg"
@@ -82,16 +82,20 @@
                     <input type="text" id="EditUserName" class="w-full border border-gray-300 rounded-lg p-2 mb-4" />
                     <input type="text" id="EditUserAge" class="w-full border border-gray-300 rounded-lg p-2 mb-4" />
                     <input type="text" id="EditUserEmail" class="w-full border border-gray-300 rounded-lg p-2 mb-4" />
-                    <input type="text" id="EditHobby" placeholder="Add Hobby" class="w-full border border-gray-300 rounded-lg p-2 mb-4" />
-                    <button id="AddEditHobbyBtn" class="w-[25%] bg-black text-white text-sm px-7 py-2 tracking-wider rounded-xl hover:scale-95">
+                    <input type="text" id="EditHobby" placeholder="Add Hobby"
+                        class="w-full border border-gray-300 rounded-lg p-2 mb-4" />
+                    <button id="AddEditHobbyBtn"
+                        class="w-[25%] bg-black text-white text-sm px-7 py-2 tracking-wider rounded-xl hover:scale-95">
                         Add Hobby
                     </button>
                     <div class="EditHobbies flex gap-2 mt-5"></div>
                     <div class="flex justify-end gap-2 mt-4">
-                        <button id="CancelEditBtn" class="bg-gray-400 text-white px-4 py-2 rounded tracking-wider rounded-xl hover:scale-95">
+                        <button id="CancelEditBtn"
+                            class="bg-gray-400 text-white px-4 py-2 rounded tracking-wider rounded-xl hover:scale-95">
                             Cancel
                         </button>
-                        <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded tracking-wider rounded-xl hover:scale-95">
+                        <button type="submit"
+                            class="bg-green-500 text-white px-4 py-2 rounded tracking-wider rounded-xl hover:scale-95">
                             Done
                         </button>
                     </div>
