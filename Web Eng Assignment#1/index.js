@@ -4,7 +4,7 @@ const user = {
     name: "",
     age: "",
     email: "",
-    hobbies: []
+    hobbies: [],
 };
 
 const AddUserBtn = document.getElementById("AddUserBtn");
@@ -14,35 +14,34 @@ AddUserBtn.addEventListener("click", (e) => {
 });
 
 function AddUser() {
-    let UserName = document.getElementById("Name").value;
-    let UserAge = document.getElementById("Age").value;
-    let UserEmail = document.getElementById("Email").value;
+    let form = document.getElementById("UserForm");
+    if (form.checkValidity()) {
+        let UserName = document.getElementById("Name").value;
+        let UserAge = document.getElementById("Age").value;
+        let UserEmail = document.getElementById("Email").value;
 
-    if(UserAge > 0 && UserName != "" && UserEmail != "")
-    {
         let newUser = {
             name: UserName,
             age: UserAge,
             email: UserEmail,
-            hobbies: [...user.hobbies]
+            hobbies: [...user.hobbies],
         };
 
         Users.push(newUser);
-    }
-    else
-    {
-        alert("Plz Fill All Input Fields!!");
-    }
-    
-    document.getElementById("Name").value = '';
-    document.getElementById("Age").value = '';
-    document.getElementById("Email").value = '';
-    document.getElementById("Hobby").value = '';
 
-    user.hobbies = [];
-    document.querySelector(".Hobbies").innerHTML = 'No Hobbies';
+        document.getElementById("Name").value = "";
+        document.getElementById("Age").value = "";
+        document.getElementById("Email").value = "";
+        document.getElementById("Hobby").value = "";
 
-    DisplayUserInTable(Users);
+        form.reset();
+        user.hobbies = [];
+        document.querySelector(".Hobbies").innerHTML = "No Hobbies!!";
+
+        DisplayUserInTable(Users);
+    } else {
+        form.reportValidity();
+    }
 }
 
 const AddHobbyBtn = document.getElementById("AddHobbyBtn");
@@ -82,10 +81,10 @@ function UpdateRemoveHobbyButtons() {
 
 function DisplayUserInTable(users) {
     let tableBody = document.querySelector(".UserData");
-    tableBody.innerHTML = '';
+    tableBody.innerHTML = "";
 
     users.forEach((user, index) => {
-        let hobbies = user.hobbies.join(', ');
+        let hobbies = user.hobbies.join(", ");
 
         let UserDataRow = `
             <tr class="text-center bg-white even:bg-gray-100 hover:bg-gray-50 transition-colors">
@@ -114,7 +113,7 @@ function DisplayUserInTable(users) {
 
 function DeleteUserFunctionality() {
     let deleteButtons = document.querySelectorAll(".DeleteUser");
-    deleteButtons.forEach(button => {
+    deleteButtons.forEach((button) => {
         button.addEventListener("click", (e) => {
             let index = e.target.getAttribute("UserIndex");
             Users.splice(index, 1);
@@ -129,7 +128,7 @@ let editedHobbies = [];
 function EditUserFunctionality() {
     let editButtons = document.querySelectorAll(".EditUser");
 
-    editButtons.forEach(button => {
+    editButtons.forEach((button) => {
         button.addEventListener("click", (e) => {
             currentUserIndex = e.target.getAttribute("UserIndex");
             let user = Users[currentUserIndex];
@@ -148,7 +147,7 @@ function EditUserFunctionality() {
 
 function DisplayHobbiesInEditForm(hobbies) {
     let Hobbies = document.querySelector(".EditHobbies");
-    Hobbies.innerHTML = '';
+    Hobbies.innerHTML = "";
 
     hobbies.forEach((hobby) => {
         Hobbies.innerHTML += `
@@ -176,7 +175,7 @@ document.getElementById("AddEditHobbyBtn").addEventListener("click", (e) => {
 
     if (UserHobby && !editedHobbies.includes(UserHobby)) {
         editedHobbies.push(UserHobby);
-        document.getElementById("EditHobby").value = '';
+        document.getElementById("EditHobby").value = "";
         DisplayHobbiesInEditForm(editedHobbies);
     }
 });
@@ -188,29 +187,34 @@ document.getElementById("CancelEditBtn").addEventListener("click", () => {
 document.getElementById("EditUserForm").addEventListener("submit", (e) => {
     e.preventDefault();
 
-    let updatedName = document.getElementById("EditUserName").value;
-    let updatedAge = document.getElementById("EditUserAge").value;
-    let updatedEmail = document.getElementById("EditUserEmail").value;
+    let form = e.target;
+    if (form.checkValidity()) {
+        let updatedName = document.getElementById("EditUserName").value;
+        let updatedAge = document.getElementById("EditUserAge").value;
+        let updatedEmail = document.getElementById("EditUserEmail").value;
 
-    Users[currentUserIndex].name = updatedName;
-    Users[currentUserIndex].age = updatedAge;
-    Users[currentUserIndex].email = updatedEmail;
-    Users[currentUserIndex].hobbies = [...editedHobbies];
+        Users[currentUserIndex].name = updatedName;
+        Users[currentUserIndex].age = updatedAge;
+        Users[currentUserIndex].email = updatedEmail;
+        Users[currentUserIndex].hobbies = [...editedHobbies];
 
-    hideModal(document.getElementById("EditUserModal"));
+        hideModal(document.getElementById("EditUserModal"));
 
-    DisplayUserInTable(Users);
+        DisplayUserInTable(Users);
+    } else {
+        form.reportValidity();
+    }
 });
 
 function showModal(modal) {
-    modal.classList.remove('hidden', 'opacity-0', 'translate-y-8');
-    modal.classList.add('opacity-100', 'translate-y-0');
+    modal.classList.remove("hidden", "opacity-0", "translate-y-8");
+    modal.classList.add("opacity-100", "translate-y-0");
 }
 
 function hideModal(modal) {
-    modal.classList.remove('opacity-100', 'translate-y-0');
-    modal.classList.add('opacity-0', 'translate-y-8');
+    modal.classList.remove("opacity-100", "translate-y-0");
+    modal.classList.add("opacity-0", "translate-y-8");
     setTimeout(() => {
-        modal.classList.add('hidden');
+        modal.classList.add("hidden");
     }, 400);
 }
