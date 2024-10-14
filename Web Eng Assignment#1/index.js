@@ -18,22 +18,29 @@ function AddUser() {
     let UserAge = document.getElementById("Age").value;
     let UserEmail = document.getElementById("Email").value;
 
-    let newUser = {
-        name: UserName,
-        age: UserAge,
-        email: UserEmail,
-        hobbies: [...user.hobbies]
-    };
+    if(UserAge > 0 && UserName != "" && UserEmail != "")
+    {
+        let newUser = {
+            name: UserName,
+            age: UserAge,
+            email: UserEmail,
+            hobbies: [...user.hobbies]
+        };
 
-    Users.push(newUser);
-
+        Users.push(newUser);
+    }
+    else
+    {
+        alert("Plz Fill All Input Fields!!");
+    }
+    
     document.getElementById("Name").value = '';
     document.getElementById("Age").value = '';
     document.getElementById("Email").value = '';
     document.getElementById("Hobby").value = '';
 
     user.hobbies = [];
-    document.querySelector(".Hobbies").innerHTML = '';
+    document.querySelector(".Hobbies").innerHTML = 'No Hobbies';
 
     DisplayUserInTable(Users);
 }
