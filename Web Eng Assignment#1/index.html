@@ -24,13 +24,13 @@
                     <input type="text" class="w-full border border-gray-300 rounded-lg" placeholder="Enter your Name..."
                         name="Name" id="Name" required /><br /><br />
                     <input type="number" class="w-full border border-gray-300 rounded-lg"
-                        placeholder="Enter your Age..." name="Age" id="Age" required /><br /><br />
+                        placeholder="Enter your Age..." name="Age" id="Age" required min="0" max="80" /><br /><br />
                     <input type="email" class="w-full border border-gray-300 rounded-lg"
                         placeholder="Enter your Email..." name="Email" id="Email" required /><br /><br />
                     <input type="text" class="w-full border border-gray-300 rounded-lg"
                         placeholder="Enter your Hobby..." name="Hobby" id="Hobby" required /><br />
                     <div class="flex justify-start mt-6">
-                        <button id="AddHobbyBtn"
+                        <button id="AddHobbyBtn" type="button"
                             class="bg-black text-white text-sm px-7 py-2 tracking-wider rounded-xl hover:scale-90">
                             Add Hobby
                         </button>
