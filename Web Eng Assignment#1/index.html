@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Managing a User Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+        src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+</head>
+
+<body>
+    <div class="w-full h-full">
+        <h1 class="text-4xl text-center font-bold mt-5 tracking-wide">
+            MANAGING A USER PROFILE
+        </h1>
+        <div class="flex justify-center my-10">
+            <div class="bg-gray-100 w-[40%] px-10 py-8 pb-4 rounded-xl">
+                <h1 class="text-center text-4xl mb-10 font-bold tracking-wide">
+                    Add User Details
+                </h1>
+                <form>
+                    <input type="text" class="w-full border border-gray-300 rounded-lg" placeholder="Enter your Name..."
+                        name="Name" id="Name" required /><br /><br />
+                    <input type="number" class="w-full border border-gray-300 rounded-lg"
+                        placeholder="Enter your Age..." name="Age" id="Age" required /><br /><br />
+                    <input type="email" class="w-full border border-gray-300 rounded-lg"
+                        placeholder="Enter your Email..." name="Email" id="Email" required /><br /><br />
+                    <input type="text" class="w-full border border-gray-300 rounded-lg"
+                        placeholder="Enter your Hobby..." name="Hobby" id="Hobby" required /><br />
+                    <div class="flex justify-start mt-6">
+                        <button id="AddHobbyBtn"
+                            class="bg-black text-white text-sm px-7 py-2 tracking-wider rounded-xl hover:scale-90">
+                            Add Hobby
+                        </button>
+                    </div>
+                    <div class="px-1 mt-6 mb-3">
+                        <h1 class="text-2xl font-bold tracking-wide mb-2">Hobbies:</h1>
+                        <div class="Hobbies flex gap-2 mt-3">
+                            <!--  Hobbies Data -->
+                        </div>
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="submit" id="AddUserBtn"
+                            class="bg-black text-white text-md px-8 tracking-wider py-2 rounded-xl hover:scale-90">
+                            Add User
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <h1 class="text-4xl font-bold text-center tracking-wide">
+                USER DETAILS TABLE
+            </h1>
+        </div>
+        <div class="UserDataTable w-full flex justify-center">
+            <table class="overflow-x-auto w-[80%] mx-auto my-8 border border-gray-300 shadow-lg rounded-lg">
+                <thead>
+                    <tr class="bg-black text-white text-center font-bold text-md tracking-wide">
+                        <th class="px-4 py-3 border-b">Name</th>
+                        <th class="px-4 py-3 border-b">Age</th>
+                        <th class="px-4 py-3 border-b">Email</th>
+                        <th class="px-4 py-3 border-b">Hobbies</th>
+                        <th class="px-4 py-3 border-b">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="UserData">
+                    <!-- User Data In a table -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="EditUserModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
+            <div class="w-[40%] bg-gray-100 px-8 py-6 rounded-lg shadow-lg">
+                <div class="my-4">
+                    <h1 class="text-4xl font-bold text-center tracking-wide">Edit User</h1>
+                </div>
+                <form id="EditUserForm">
+                    <input type="text" id="EditUserName" class="w-full border border-gray-300 rounded-lg p-2 mb-4" />
+                    <input type="text" id="EditUserAge" class="w-full border border-gray-300 rounded-lg p-2 mb-4" />
+                    <input type="text" id="EditUserEmail" class="w-full border border-gray-300 rounded-lg p-2 mb-4" />
+                    <input type="text" id="EditHobby" placeholder="Add Hobby" class="w-full border border-gray-300 rounded-lg p-2 mb-4" />
+                    <button id="AddEditHobbyBtn" class="w-[25%] bg-black text-white text-sm px-7 py-2 tracking-wider rounded-xl hover:scale-95">
+                        Add Hobby
+                    </button>
+                    <div class="EditHobbies flex gap-2 mt-5"></div>
+                    <div class="flex justify-end gap-2 mt-4">
+                        <button id="CancelEditBtn" class="bg-gray-400 text-white px-4 py-2 rounded tracking-wider rounded-xl hover:scale-95">
+                            Cancel
+                        </button>
+                        <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded tracking-wider rounded-xl hover:scale-95">
+                            Done
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
