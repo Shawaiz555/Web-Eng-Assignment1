@@ -36,7 +36,7 @@ function AddUser() {
 
         form.reset();
         user.hobbies = [];
-        document.querySelector(".Hobbies").innerHTML = "No Hobbies!!";
+        document.querySelector(".Hobbies").innerHTML = "";
 
         DisplayUserInTable(Users);
     } else {
@@ -53,7 +53,6 @@ function AddHobby(e) {
 
     if (UserHobby && !user.hobbies.includes(UserHobby)) {
         user.hobbies.push(UserHobby);
-        document.getElementById("Hobby").value = "";
 
         let Hobbies = document.querySelector(".Hobbies");
         Hobbies.innerHTML += `
